@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0">
+        <title>Lista de Tareas</title>
+        <link rel="stylesheet" href="estilos.css">
+    </head>
+    <body>
+    <div class="contenedor">
+        <h1>Lista de Tareas</h1>
+        <p class="descripcion">
+        Organiza tus actividades de forma sencilla
+        </p>
+        <div class="formulario">
+        <input
+            type="text"
+            Id="entradaTarea"
+            placeholder="Escribe una tarea">
+
+    <button id="btnAgregar">
+        Agregar
+    </button>
+        </div>
+        <ul id="listaTareas"></ul>
+        <div class="informacion">
+        <p>
+            Tareas pendientes:
+            <strong id="contador">0</strong>
+        </p>
+        <button id="btnLimplar">
+            Limpiar todas las tareas </button> </div>
+        </div>
+            <script src="script.js"></script>
+    </body>
+</html>

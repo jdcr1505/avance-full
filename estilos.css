@@ -1,0 +1,110 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f4f7;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 600px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 15);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.descripcion {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.formulario {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#entradaTarea {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#btnAgregar {
+    background-color: #007bff;
+    color: white;
+}
+
+#btnAgregar:hover {
+    background-color: #0056b3;
+}
+
+#listaTareas {
+    list-style: none;
+}
+
+.tarea {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 5px solid #007bff;
+}
+
+.tareaCompletada {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.btnEliminar {
+    background-color: #dc3545;
+    color: white;
+    padding: 7px 10px;
+}
+
+.btnEliminar:hover {
+    background-color: #a71d2a;
+}
+
+.informacion {
+margin-top: 20px;
+text-align: center;
+
+border-top: 1px solid #ddd;
+padding-top: 20px;
+}
+
+#btnLimpiar {
+background-color: #333;
+color: white;
+margin-top: 10px;
+}
+
