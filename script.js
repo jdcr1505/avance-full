@@ -126,9 +126,3 @@ function actualizarContador() {
 
     contador.textContent = pendientes;
 }
-function guardarTareas(){
-    localStorage.setItem(
-        "tareas",
-        JSON.stringify(tareas)
-    );
-}

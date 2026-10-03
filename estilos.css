@@ -59,7 +59,7 @@ button {
 #btnAgregar:hover{
     background-color: #0056b3;
 }
-#listoTareas{
+#listaTareas{
     list-style: none;
 }
 .tarea{
@@ -82,7 +82,7 @@ button {
     padding: 7px 10px;
 
 }
-.btnEliminar.hover {
+.btnEliminar:hover {
     background-color: #a71d2a;
 }
 .informacion{
