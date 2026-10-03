@@ -5,19 +5,26 @@ const contador = document.getElementById("contador");
 const btnLimpiar = document.getElementById("btnLimpiar");
 
 let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
+
 mostrarTareas();
+
 btnAgregar.addEventListener("click", agregarTarea);
+
 entradaTarea.addEventListener("keypress", function(evento) {
-    if (evento.key === "Enter"){
+    if (evento.key === "Enter") {
         agregarTarea();
     }
 });
+
 btnLimpiar.addEventListener("click", limpiarTareas);
 
-function agregarTarea () {
+
+function agregarTarea() {
     const texto = entradaTarea.value.trim();
+
     if (texto === "") {
-        alert("Por favor, escribe una tarea");
+        alert("Por favor, escribe una tarea.");
+        return;
     }
 
     const nuevaTarea = {
@@ -25,63 +32,80 @@ function agregarTarea () {
         texto: texto,
         completada: false
     };
+
     tareas.push(nuevaTarea);
 
     guardarTareas();
     entradaTarea.value = "";
-    mostrarTareas(); }
+    mostrarTareas();
+}
 
-function mostrarTareas () {
+
+function mostrarTareas() {
     listaTareas.innerHTML = "";
-    tareas.array.forEach(function(tarea) {
+
+    tareas.forEach(function(tarea) {
         const elemento = document.createElement("li");
         elemento.classList.add("tarea");
+
         if (tarea.completada) {
             elemento.classList.add("completada");
         }
 
         elemento.innerHTML = `
-        <span
-        onclick = "cambiarEstado($(tarea.id))"
-        style = "cursor:pointer">
-        ${tarea.texto}
-        </span>
-        <button
-        class="btnEliminar"
-        onclick = "eliminarTarea(${tarea.id})"
-        Eliminar </button> `;
+            <span
+                onclick="cambiarEstado(${tarea.id})"
+                style="cursor:pointer">
+                ${tarea.texto}
+            </span>
 
-    listaTareas.appendChild(elemento);
+            <button
+                class="btnEliminar"
+                onclick="eliminarTarea(${tarea.id})">
+                Eliminar
+            </button>
+        `;
+
+        listaTareas.appendChild(elemento);
     });
+
     actualizarContador();
 }
 
+
 function cambiarEstado(id) {
     tareas = tareas.map(function(tarea) {
-        if (tarea.id === id){
+        if (tarea.id === id) {
             tarea.completada = !tarea.completada;
         }
+
         return tarea;
     });
+
     guardarTareas();
     mostrarTareas();
 }
+
 
 function eliminarTarea(id) {
-    tareas = tareas.filter(function(Tarea) {
-return tarea.id != id;
+    tareas = tareas.filter(function(tarea) {
+        return tarea.id !== id;
     });
+
     guardarTareas();
     mostrarTareas();
 }
 
-function limpiarTareas () {
+
+function limpiarTareas() {
     if (tareas.length === 0) {
         return;
     }
-    const confirmar = confirm (
+
+    const confirmar = confirm(
         "¿Deseas eliminar todas las tareas?"
     );
+
     if (confirmar) {
         tareas = [];
         guardarTareas();
@@ -89,16 +113,22 @@ function limpiarTareas () {
     }
 }
 
+
+function guardarTareas() {
+    localStorage.setItem("tareas", JSON.stringify(tareas));
+}
+
+
 function actualizarContador() {
     const pendientes = tareas.filter(function(tarea) {
         return !tarea.completada;
-    });
-    contador.textContent = pendientes.length;
-}
+    }).length;
 
-function guardarTareas() {
-    localStorage.setItem("tareas",
+    contador.textContent = pendientes;
+}
+function guardarTareas(){
+    localStorage.setItem(
+        "tareas",
         JSON.stringify(tareas)
     );
 }
-
